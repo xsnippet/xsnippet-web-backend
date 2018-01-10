@@ -12,4 +12,9 @@ logger = logging.getLogger('aiohttp').setLevel(logging.INFO)
 
 # create an app instance and listen forever
 app = create_app(conf)
-aiohttp.web.run_app(app, host=conf.LISTEN_HOST, port=conf.LISTEN_PORT)
+aiohttp.web.run_app(
+    app,
+    host=conf.LISTEN_HOST,
+    port=conf.LISTEN_PORT,
+    access_log_format=conf.ACCESS_LOG_FORMAT
+)
